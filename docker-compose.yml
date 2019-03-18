@@ -1,0 +1,18 @@
+version: "3"
+services:
+    api:
+      build: .
+      image: urbaner
+      command: python server.py
+      volumes:
+        - ./code/:/usr/local/opt/
+      ports:
+        - "8000:8000"
+
+    client:
+      image: urbaner
+      command: python client.py
+      volumes:
+        - ./code/:/usr/local/opt/
+      ports:
+        - "5000:5000"

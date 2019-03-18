@@ -9,4 +9,4 @@ def index():
 def docs():
     return static_file('docs.html', root=".")
 
-run(host='localhost', port=5000)
+run(host='0.0.0.0', port=5000)
