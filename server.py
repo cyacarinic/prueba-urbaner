@@ -1,9 +1,17 @@
+# -*- coding: utf-8 -*-
 # Run with "python server.py"
+import json
+from bottle import run, get
 
-from bottle import run
 
-# Start your code here, good luck (: ...
-
+# Index Route
+@get('/', method=['OPTIONS', 'GET'])
+def index():
+    return json.dumps({
+        "dev": "Claudio Yacarini",
+        "email": "cyacarinic@gmail.com",
+        "phone": "+51949194949"
+    })
 
 
 run(host='localhost', port=8000)
