@@ -1,11 +1,54 @@
-<!-- You can use any js library (: -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Urbaner</title>
+        <title>Claudio Yacarini - Urbaner</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        Claudio Yacarini
+        <!-- Login Form -->
+        <div class="container">
+            <form class="form-signin" onsubmit="return false;">
+                <h2 class="form-signin-heading">Login</h2>
+                <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+        </div>
+
+        <!-- Credentials Form -->
+        <div class="container">
+            <h2>Mi token</h2>
+            <div class="panel panel-default">
+                <div id="token" class="panel-body">HardCodedToken</div>
+            </div>
+        </div>
+
+        <!-- Notes Form -->
+        <div class="container">
+            <h2>Mis Notas</h2>
+            <div class="panel panel-default">
+                <div id="notas" class="panel-body">
+                    <table class="table table-striped" id="notesTable">
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Contenido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HardCodedTitle</td>
+                                <td>HardCodedContent</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
