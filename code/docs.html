@@ -11,6 +11,30 @@
     </body>
     <body>
         <h1>Server</h1>
-        <ul><p><li>/</li>localhost:8000</p></ul>
+        <ul>
+            <p><li>/</li>
+            localhost:8000</p>
+
+            <p><li>Crear usuario (POST)</li>
+            localhost:8000/user</p>
+
+            <p><li>Login (POST)</li>
+            localhost:8000/login</p>
+
+            <p><li>Listar Usuarios (GET) <b>[login required]</b></li>
+            localhost:8000/user</p>
+
+            <p><li>Listar un usuario (GET) <b>[login required]</b></li>
+            localhost:8000/user/{userId}</p>
+
+            <p><li>Listar notas de un usuario (GET) <b>[login required]</b></li>
+            localhost:8000/user/{userId}/notes</p>
+
+            <p><li>Crear Notas (POST) <b>[login required]</b></li>
+            localhost:8000/notes</p>
+
+            <p><li>Listar Mis Notas (Get) <b>[login required]</b></li>
+            localhost:8000/notes</p>
+        </ul>
     </body>
 </html>
