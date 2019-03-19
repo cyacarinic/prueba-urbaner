@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from peewee import *
 from models import DBUrbaner, MyModel
 from models.user import User

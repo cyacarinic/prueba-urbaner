@@ -16,7 +16,6 @@ def auth_verify(headers):
     try:
         jwt_token = jwt.decode(headers.get("Authorization"),
                                jwt_secret, algorithms=['HS256'])
-
         return jwt_token
     except Exception as e:
         abort(401, "You're not allowed to access to this resource. Pls login")
@@ -29,10 +28,7 @@ def error400(error):
         error_detail = json.loads(error.body)
     except Exception as e:
         error_detail = error.body
-    error_data = {
-        'status_code': 400,
-        'error_message': error_detail
-    }
+    error_data = {'status_code': 400, 'error_message': error_detail}
     return parse_response(error_data)
 
 
@@ -42,10 +38,7 @@ def error401(error):
         error_detail = json.loads(error.body)
     except Exception as e:
         error_detail = error.body
-    error_data = {
-        'status_code': 401,
-        'error_message': error_detail
-    }
+    error_data = {'status_code': 401, 'error_message': error_detail}
     return parse_response(error_data)
 
 
@@ -55,8 +48,5 @@ def error404(error):
         error_detail = json.loads(error.body)
     except Exception as e:
         error_detail = error.body
-    error_data = {
-        'status_code': 404,
-        'error_message': error_detail
-    }
+    error_data = {'status_code': 404, 'error_message': error_detail}
     return parse_response(error_data)

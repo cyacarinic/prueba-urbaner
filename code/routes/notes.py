@@ -26,9 +26,7 @@ def note_list():
 def note_save():
     user_token = auth_verify(dict(request.headers))
     body = request.json
-    body.update({
-        "owner_id": user_token["id"]
-    })
+    body.update({"owner_id": user_token["id"]})
     validated = NoteSchema().load(body)
 
     if validated.errors:
