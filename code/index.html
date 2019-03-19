@@ -39,12 +39,11 @@
                                 <th>Contenido</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            <tr>
-                                <td>HardCodedTitle</td>
-                                <td>HardCodedContent</td>
-                            </tr>
+
                         </tbody>
+
                     </table>
                 </div>
             </div>
@@ -76,15 +75,25 @@
             .catch(error => {
                 console.log('Error:', error);
                 document.getElementById("token").innerHTML = "Credenciales incorrectas, intentelo nuevamente";
+                populateNotes(null);
             });
         }
 
         function populateNotes(token){
-            notesData = [{"title":"tuno", "content":"cuno"},
-                     {"title":"tdos", "content":"cdos"},
-                     {"title":"ttres", "content":"ctres"}]
-            for (var i = 0, l = notesData.length; i < l; i++) {
-                console.log(notesData[i]);
+            if (token){
+                notesData = [{"title":"tuno", "content":"cuno"},
+                             {"title":"tdos", "content":"cdos"},
+                             {"title":"ttres", "content":"ctres"}];
+            }else{
+                notesData = [];
             }
+            var _lines = "";
+            for (var i = 0, l = notesData.length; i < l; i++) {
+                _title = "<tr><td>TITLE</td>".replace("TITLE", notesData[i]["title"]);
+                _content = "<td>CONTENT</td></tr>".replace("CONTENT", notesData[i]["content"]);
+                _lines += _title + _content;
+            }
+            $("#notesTable tbody").html(_lines);
         }
+
 </script>
