@@ -5,6 +5,21 @@ from config import jwt_secret
 from bottle import error, response, abort, request
 
 
+# the decorator
+def enable_cors(fn):
+    def _enable_cors(*args, **kwargs):
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, \
+                                                            OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, \
+                                                            Content-Type, \
+                                                            X-Requested-With, \
+                                                            X-CSRF-Token'
+        if request.method != 'OPTIONS':
+            return fn(*args, **kwargs)
+    return _enable_cors
+
+
 # Content Type
 def parse_response(data):
     response.content_type = 'application/json'

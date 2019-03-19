@@ -2,13 +2,14 @@
 import json
 from bottle import abort
 from bottle import get, post, request
-from routes import auth_verify, parse_response
+from routes import auth_verify, parse_response, enable_cors
 from schemas.note import NoteSchema
 from models.note import Note
 
 
 # Get list of Notes
 @get('/notes', method=['OPTIONS', 'GET'])
+@enable_cors
 def note_list():
     user_token = auth_verify(dict(request.headers))
     collection = []
@@ -23,6 +24,7 @@ def note_list():
 
 # Save a new Note
 @post('/notes')
+@enable_cors
 def note_save():
     user_token = auth_verify(dict(request.headers))
     body = request.json

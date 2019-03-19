@@ -6,12 +6,13 @@ from config import hash_password, jwt_secret
 from bottle import abort
 from bottle import get, post, request
 from models.user import User
-from routes import auth_verify, parse_response
+from routes import auth_verify, parse_response, enable_cors
 from schemas.user import UserSchema
 
 
 # Do login
 @post('/login', method=['OPTIONS', 'POST'])
+@enable_cors
 def login():
     if request.method == 'OPTIONS':
         return {}
@@ -43,6 +44,7 @@ def login():
 
 # Do logout
 @post('/logout')
+@enable_cors
 def logout():
     auth_verify(dict(request.headers))
     return parse_response({"logout": "ok"})

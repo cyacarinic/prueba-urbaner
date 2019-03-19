@@ -3,13 +3,14 @@ import json
 from bottle import abort
 from bottle import get, post, request
 from config import hash_password
-from routes import auth_verify, parse_response
+from routes import auth_verify, parse_response, enable_cors
 from schemas.user import UserSchema
 from models.user import User
 
 
 # Get list of Users
 @get('/users')
+@enable_cors
 def user_list():
     auth_verify(dict(request.headers))
     collection = []
@@ -20,6 +21,7 @@ def user_list():
 
 # Get Specific User
 @get('/users/<id>')
+@enable_cors
 def user_list(id):
     auth_verify(dict(request.headers))
     try:
@@ -31,6 +33,7 @@ def user_list(id):
 
 # Get Notes from user
 @get('/users/<id>/notes')
+@enable_cors
 def user_list(id):
     user_token = auth_verify(dict(request.headers))
     try:
@@ -50,6 +53,7 @@ def user_list(id):
 
 # Save a new User
 @post('/users')
+@enable_cors
 def user_save():
     body = request.json
     password = body.get("password", None)
